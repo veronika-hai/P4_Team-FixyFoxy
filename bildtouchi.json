@@ -1,0 +1,1 @@
+[{"id":"56ef037.71bf7fc","type":"inject","z":"e454092b.b429c8","name":"Touchi","props":[],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":260,"y":360,"wires":[["67c9aecb.3091f"]]}]
