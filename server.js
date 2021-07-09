@@ -13,7 +13,7 @@ server.get("/", (req, res) => {
     db.each(query,
         (err, row) => {
           if (err) {
-            console.error("Etwas ist schief gegangen /artists ", err);
+            console.error("Etwas ist schief gegangen", err);
             return;
           }
     
