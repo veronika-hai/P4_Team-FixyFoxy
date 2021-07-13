@@ -1,3 +1,8 @@
+/*Der Proof of Concept ist dafür da zu überprüfen, 
+ * ob ein Klopfzeichen dem zuvor in einem Array abgespeicherten Klopfzeichen 
+ * in Anzahl der Klopfer und Stärke des Schwellenwerts entspricht.
+ * Quelle: https://youtu.be/-TQpgyTgcQ8 */
+
 const int outputPin = 6; //hier könnte eine LED angeschlossen werden
 const int knockSensor = A0;
 const int thresholdHIGH = 20; 
