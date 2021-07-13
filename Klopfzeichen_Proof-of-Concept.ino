@@ -28,8 +28,6 @@ void setup() {
 
 void loop() {
   sensorReading = analogRead(knockSensor);
-//Serial.println(sensorReading);
-
 
 //Lauter Klopfer
 if(sensorReading >= thresholdHIGH)
@@ -43,7 +41,7 @@ if(sensorReading >= thresholdHIGH)
     else
     {
         secretCounter = 0;
-        Serial.println("Fail - You are a spy!");
+        Serial.println("WRONG!!!");
     }
 
     delay(100);
@@ -60,7 +58,7 @@ else if(sensorReading >= thresholdLOW)
     else
     {
         secretCounter = 0;
-        Serial.println("Fail - You are a spy!");
+        Serial.println("WRONG!!!");
     }
 
     delay(100);
@@ -68,11 +66,11 @@ else if(sensorReading >= thresholdLOW)
 
 if(secretCounter == (secretKnockLength))
 {
-    Serial.println("Welcome in fellow Illuminate!");
+    Serial.println("Yeah you made it!");
 
-    digitalWrite(outputPin, HIGH);
+    digitalWrite(outputPin, HIGH);//schaltet die LED ein
     delay(3000);
-    digitalWrite(outputPin, LOW);
+    digitalWrite(outputPin, LOW);//schaltet die LED aus
     secretCounter = 0;
 }
 
