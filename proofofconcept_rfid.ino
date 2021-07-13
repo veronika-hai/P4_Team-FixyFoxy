@@ -1,4 +1,4 @@
-// Wie kann man die UID (HEX) von RFID-Chips in eine zusammenhängende Zahl umwandeln
+// Wie kann man die UID von RFID-Chips in eine zusammenhängende Zahl umwandeln
 // source: https://funduino.de/nr-18-rfid-kit 
 
 #include <SPI.h> // Serielle Schnittstelle - SPI-Bibiothek 
@@ -35,13 +35,13 @@ return; // wiederholt es sich von Anfang an
 
 long code=0; // neue Variable, unter welcher später die ID ausgegeben wird. Statt int lieber Zahlenbereich „long“, weil sich dann eine größere Zahl speichern lässt
 
-// die UID der Chips werden als HEX-Zahl in 4 Blöcken ausgelesen => Serial.print(mfrc522.uid.uidByte[i], HEX) ergibt  z.B. F3 F8 A6 0 
+// die UID der Chips werden als HEX-Zahl in 4 Blöcken (4 Bytes) ausgelesen => Serial.print(mfrc522.uid.uidByte[i], HEX) ergibt  z.B. F3 F8 A6 0 
 // die HEX-Zahl wandelt man also besser in eine Dezimalzahl um Serial.print(mfrc522.uid.uidByte[i], DEC) ergibt z.B. 84 48 224 156 
-// trotzdem bleiben 4 Blöcke und die erschweren die Weiterverarbeitung! Denn dann muss man bei weiteren Befehlen alle Blöcke einzelnd aufzählen, anstatt eine zusammenhängende Zahl (1234567) anzugeben 
+// trotzdem bleiben 4 Blöcke und die erschweren die Weiterverarbeitung! Denn dann muss man bei weiteren Befehlen alle Blöcke einzelnd aufzählen, anstatt eine zusammenhängende Zahl (z.B. 1234567) anzugeben 
 
 for (byte i = 0; i < mfrc522.uid.size; i++)
 {
-code=((code+mfrc522.uid.uidByte[i])*10); // vier Blöcke werden ausgelesen und in jedem Durchlauf wird der Code nun mit dem Faktor 10 „gestreckt“ -> dadurch wird aus der HEX-UID eine Dezimalzahl
+code=((code+mfrc522.uid.uidByte[i])*10); // vier Blöcke werden ausgelesen und in jedem Durchlauf wird der Code nun mit dem Faktor 10 „gestreckt“ -> dadurch wird aus den Dezimalzahlen der einzelnen Bytes eine zusammenhängende Zahl
 }
 
 Serial.print("Die ID lautet: "); // hier wird dann die umgewandelte ID ausgegeben 
