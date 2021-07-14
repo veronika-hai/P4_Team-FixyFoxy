@@ -1,4 +1,4 @@
-// Wie kann man die UID (HEX) von RFID-Chips in eine zusammenhängende Zahl umwandeln
+// Wie kann man die UID von RFID-Chips in eine zusammenhängende Zahl umwandeln
 // source: https://funduino.de/nr-18-rfid-kit 
 
 #include <SPI.h> // Serielle Schnittstelle - SPI-Bibiothek 
@@ -10,7 +10,7 @@
 
 #define SS_PIN 10
 #define RST_PIN 9
-MFRC522 mfrc522(SS_PIN, RST_PIN); // RFID-Empfänger benennen
+MFRC522 mfrc522(SS_PIN, RST_PIN); // RFID-Scanner benennen
 
 void setup()
 {
@@ -41,7 +41,7 @@ long code=0; // neue Variable, unter welcher später die ID ausgegeben wird. Sta
 
 for (byte i = 0; i < mfrc522.uid.size; i++)
 {
-code=((code+mfrc522.uid.uidByte[i])*10); // vier Blöcke werden ausgelesen und in jedem Durchlauf wird der Code nun mit dem Faktor 10 „gestreckt“ -> dadurch wird aus der HEX-UID eine zusammenhängende Zahl
+code=((code+mfrc522.uid.uidByte[i])*10); // vier Blöcke werden ausgelesen und in jedem Durchlauf wird der Code nun mit dem Faktor 10 „gestreckt“ -> dadurch wird aus der DEC-UID eine zusammenhängende Zahl
 }
 
 Serial.print("Die ID lautet: "); // hier wird dann die umgewandelte ID ausgegeben 
