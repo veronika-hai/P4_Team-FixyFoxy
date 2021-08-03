@@ -23,7 +23,7 @@ verbindung.isOpen()       # oeffnet den seriellen Port
 time.sleep(1)             # unterbricht die Ausfuehrung fuer 1 Sekunde - Arduino braucht beim Starten der Verbindung laenger
 
 verbindung.write('text')  # seriell werden Daten in einem String uebergeben 
-try:                      # solange das Programm laeuft fuehre die Zeilen 17-19 aus
+try:                      # solange das Programm laeuft fuehre die Zeilen 27-30 aus
     while True: 
         antwort = verbindung.readline() #jede empfangene Zeile wird in "antwort" gespeichert - liest nur ganze Zeilen!
         # str(antwort) 
